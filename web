@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trang Web Demo</title>
+  <meta name="description" content="Mẫu website HTML + CSS thuần, responsive" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🌐</text></svg>">
+  <style>
+    :root{
+      --bg:#0f172a;      /* nền tối xanh */
+      --card:#111827;    /* màu khối */
+      --muted:#94a3b8;   /* chữ phụ */
+      --text:#e5e7eb;    /* chữ chính */
+      --brand:#22d3ee;   /* màu nhấn */
+      --brand-2:#60a5fa;
+      --radius:16px;
+      --shadow:0 10px 30px rgba(0,0,0,.25)
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,sans-serif; 
+      color:var(--text); background:radial-gradient(1200px 600px at 0% 0%, #0b1022 0%, var(--bg) 60%);
+      line-height:1.6; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    }
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
+
+    /* Header */
+    .container{width:min(1100px, 92%); margin-inline:auto}
+    header{
+      position:sticky; top:0; z-index:10; backdrop-filter:saturate(150%) blur(8px);
+      background:rgba(15,23,42,.6); border-bottom:1px solid rgba(255,255,255,.06)
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:700}
+    .logo{width:34px; height:34px; border-radius:10px; background:linear-gradient(135deg,var(--brand),var(--brand-2)); box-shadow:var(--shadow)}
+    nav ul{display:flex; gap:20px; list-style:none; padding:0; margin:0}
+    .menu-btn{display:none}
+
+    /* Hero */
+    .hero{padding:80px 0 40px; text-align:center}
+    .title{font-size:clamp(28px,6vw,48px); line-height:1.15; margin:0}
+    .subtitle{color:var(--muted); font-size:clamp(16px,2.6vw,20px); margin:14px 0 26px}
+    .cta{display:inline-flex; gap:12px}
+    .btn{
+      padding:12px 18px; border-radius:999px; border:1px solid rgba(255,255,255,.12);
+      background:linear-gradient(135deg,rgba(34,211,238,.15),rgba(96,165,250,.15));
+      color:var(--text); font-weight:600; cursor:pointer; transition:.2s transform ease, .2s filter ease
+    }
+    .btn:hover{transform:translateY(-2px); filter:brightness(1.1)}
+
+    /* Feature cards */
+    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow)
+    }
+    .card h3{margin:0 0 6px}
+    .tag{display:inline-block; font-size:12px; color:#0b1220; background:linear-gradient(135deg,var(--brand),var(--brand-2));
+      padding:6px 10px; border-radius:999px; font-weight:700; letter-spacing:.3px}
+
+    /* Section spacing */
+    section{padding:34px 0}
+    .two-col{display:grid; grid-template-columns:1.2fr 1fr; gap:28px; align-items:center}
+    .illus{border-radius:var(--radius); overflow:hidden; border:1px solid rgba(255,255,255,.08)}
+
+    /* Footer */
+    footer{margin-top:40px; border-top:1px solid rgba(255,255,255,.06); color:var(--muted); padding:26px 0; font-size:14px}
+
+    /* Mobile */
+    @media (max-width: 800px){
+      .grid{grid-template-columns:1fr}
+      .two-col{grid-template-columns:1fr}
+      nav ul{display:none}
+      .menu-btn{display:inline-flex; gap:8px; align-items:center; padding:8px 12px; border-radius:10px; border:1px solid rgba(255,255,255,.12)}
+      .open nav ul{display:flex; flex-direction:column; gap:10px; background:rgba(15,23,42,.9); position:absolute; right:4%; top:56px; padding:14px; border-radius:12px; border:1px solid rgba(255,255,255,.1)}
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav" id="top">
+      <a class="brand" href="#top" aria-label="Trang chủ">
+        <span class="logo" aria-hidden="true"></span>
+        <span>Web Demo</span>
+      </a>
+      <button class="menu-btn" id="menuBtn" aria-label="Mở menu">☰ Menu</button>
+      <nav>
+        <ul aria-label="Điều hướng">
+          <li><a href="#tinh-nang">Tính năng</a></li>
+          <li><a href="#gioi-thieu">Giới thiệu</a></li>
+          <li><a href="#lien-he">Liên hệ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero container">
+    <h1 class="title">Mẫu trang HTML + CSS <br/>đẹp, nhẹ, dễ chỉnh sửa</h1>
+    <p class="subtitle">Bắt đầu nhanh một website đơn giản. Tất cả gói trong 1 file HTML.</p>
+    <div class="cta">
+      <a class="btn" href="#tinh-nang">Xem tính năng</a>
+      <a class="btn" href="#lien-he">Liên hệ</a>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="tinh-nang" class="container">
+    <div class="grid">
+      <article class="card">
+        <span class="tag">Responsive</span>
+        <h3>Hiển thị tốt trên mọi thiết bị</h3>
+        <p>Thiết kế tự co giãn, menu mobile gọn gàng, chữ dễ đọc.</p>
+      </article>
+      <article class="card">
+        <span class="tag">Dễ sửa</span>
+        <h3>Cấu trúc đơn giản</h3>
+        <p>Chỉ dùng HTML + CSS + tí JavaScript giúp bạn chỉnh sửa nhanh.</p>
+      </article>
+      <article class="card">
+        <span class="tag">Đẹp</span>
+        <h3>Màu sắc hiện đại</h3>
+        <p>Tông tối kết hợp gradient nhẹ, bóng đổ mượt mà.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="gioi-thieu" class="container two-col">
+    <div>
+      <h2>Giới thiệu</h2>
+      <p>Đây là khung sườn cơ bản cho một trang web. Bạn có thể đổi màu, font, bố cục và nội dung theo ý thích. Chỉ cần mở file bằng trình duyệt là chạy.</p>
+      <ul>
+        <li>Thay tiêu đề ở thẻ <code>&lt;title&gt;</code></li>
+        <li>Sửa logo hình vuông (class <code>.logo</code>) hoặc thay bằng ảnh</li>
+        <li>Đổi các mục ở menu điều hướng</li>
+      </ul>
+    </div>
+    <div class="illus">
+      <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop" alt="Hình minh họa làm việc nhóm" />
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="lien-he" class="container">
+    <div class="card">
+      <h2>Liên hệ</h2>
+      <p>Ngoại tuyến: Hãy đổi nội dung này thành form thật (VD Google Forms) hoặc để email của bạn.</p>
+      <form onsubmit="event.preventDefault(); alert('Cảm ơn bạn! Đây chỉ là demo.');">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:12px 0">
+          <input aria-label="Họ và tên" required placeholder="Họ và tên" style="padding:12px; border-radius:12px; border:1px solid rgba(255,255,255,.15); background:rgba(255,255,255,.04); color:inherit" />
+          <input aria-label="Email" type="email" required placeholder="Email" style="padding:12px; border-radius:12px; border:1px solid rgba(255,255,255,.15); background:rgba(255,255,255,.04); color:inherit" />
+        </div>
+        <textarea aria-label="Nội dung" required placeholder="Nội dung" rows="4" style="width:100%; padding:12px; border-radius:12px; border:1px solid rgba(255,255,255,.15); background:rgba(255,255,255,.04); color:inherit"></textarea>
+        <div style="margin-top:12px">
+          <button class="btn" type="submit">Gửi</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">© <span id="year"></span> • Làm bởi bạn với ❤ — <a href="#top">Về đầu trang</a></div>
+  </footer>
+
+  <script>
+    // Menu mobile
+    const btn = document.getElementById('menuBtn');
+    const header = document.querySelector('header');
+    btn?.addEventListener('click',()=>{ header.classList.toggle('open'); });
+    // Năm hiện tại
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
